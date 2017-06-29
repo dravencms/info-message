@@ -38,6 +38,13 @@ class Detail extends BaseControl
     {
         $template = $this->template;
 
+        $infoMessagesTranslations = [];
+        foreach($this->infoMessageRepository->getActive() AS $infoMessage)
+        {
+            $infoMessagesTranslations[] = $this->infoMessageTranslationRepository->getTranslation($infoMessage, $this->currentLocale);
+        }
+
+        $template->infoMessagesTranslations = $infoMessagesTranslations;
 
         $template->setFile(__DIR__.'/detail.latte');
         $template->render();

@@ -63,7 +63,7 @@ class InfoMessageTranslation extends Nette\Object
     /**
      * @param InfoMessage $infoMessage
      */
-    public function setGallery(InfoMessage $infoMessage)
+    public function setInfoMessage(InfoMessage $infoMessage)
     {
         $this->infoMessage = $infoMessage;
     }

@@ -30,19 +30,19 @@ class InfoMessageTranslationRepository
     }
 
     /**
-     * @param InfoMessage $gallery
+     * @param InfoMessage $infoMessage
      * @param ILocale $locale
      * @return InfoMessageTranslation
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function getTranslation(InfoMessage $gallery, ILocale $locale)
+    public function getTranslation(InfoMessage $infoMessage, ILocale $locale)
     {
-        $qb = $this->infoMessageTranslationRepository->createQueryBuilder('gt')
-            ->select('gt')
-            ->where('gt.locale = :locale')
-            ->andWhere('gt.gallery = :gallery')
+        $qb = $this->infoMessageTranslationRepository->createQueryBuilder('imt')
+            ->select('imt')
+            ->where('imt.locale = :locale')
+            ->andWhere('imt.infoMessage = :infoMessage')
             ->setParameters([
-                'gallery' => $gallery,
+                'infoMessage' => $infoMessage,
                 'locale' => $locale
             ]);
         return $qb->getQuery()->getOneOrNullResult();

@@ -57,10 +57,10 @@ class InfoMessageRepository
     /**
      * @return \Kdyby\Doctrine\QueryBuilder
      */
-    public function getGalleryQueryBuilder()
+    public function getInfoMessageQueryBuilder()
     {
-        $qb = $this->infoMessageRepository->createQueryBuilder('g')
-            ->select('g');
+        $qb = $this->infoMessageRepository->createQueryBuilder('im')
+            ->select('im');
         return $qb;
     }
 
@@ -69,7 +69,19 @@ class InfoMessageRepository
      */
     public function getActive()
     {
-        return $this->infoMessageRepository->findBy(['isActive' => true]);
+        $now = new \DateTime();
+        return $this->infoMessageRepository->createQueryBuilder('im')
+            ->select('im')
+            ->where('im.isActive = :isActive')
+            ->andWhere('im.fromDate > :fromDate OR im.fromDate IS NULL')
+            ->andWhere('im.toDate < :toDate OR im.toDate IS NULL')
+            ->setParameters([
+                'isActive' => true,
+                'fromDate' => $now,
+                'toDate' => $now
+            ])
+            ->getQuery()
+            ->getResult();
     }
 
     /**

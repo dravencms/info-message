@@ -52,19 +52,19 @@ class InfoMessage extends Nette\Object
 
     /**
      * @var \DateTimeInterface
-     * @ORM\Column(type="dateTime", nullable=false)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $fromDate;
 
     /**
      * @var \DateTimeInterface
-     * @ORM\Column(type="dateTime", nullable=false)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $toDate;
 
     /**
      * @var ArrayCollection|InfoMessageTranslation[]
-     * @ORM\OneToMany(targetEntity="InfoMessageTranslation", mappedBy="gallery",cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="InfoMessageTranslation", mappedBy="infoMessage",cascade={"persist", "remove"})
      */
     private $translations;
 
@@ -124,7 +124,7 @@ class InfoMessage extends Nette\Object
     /**
      * @param \DateTimeInterface $fromDate
      */
-    public function setFromDate(\DateTimeInterface $fromDate)
+    public function setFromDate(\DateTimeInterface $fromDate = null)
     {
         $this->fromDate = $fromDate;
     }
@@ -132,7 +132,7 @@ class InfoMessage extends Nette\Object
     /**
      * @param \DateTimeInterface $toDate
      */
-    public function setToDate(\DateTimeInterface $toDate)
+    public function setToDate(\DateTimeInterface $toDate = null)
     {
         $this->toDate = $toDate;
     }

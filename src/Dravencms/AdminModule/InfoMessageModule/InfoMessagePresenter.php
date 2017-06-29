@@ -14,9 +14,8 @@ use Dravencms\Model\InfoMessage\Repository\InfoMessageRepository;
 
 
 /**
- * Description of GalleryPresenter
- *
- * @author sadam
+ * Class InfoMessagePresenter
+ * @package Dravencms\AdminModule\InfoMessageModule
  */
 class InfoMessagePresenter extends SecuredPresenter
 {
@@ -49,11 +48,11 @@ class InfoMessagePresenter extends SecuredPresenter
     {
         if ($id) {
             $this->template->h1 = 'Edit info message';
-            $gallery = $this->infoMessageRepository->getOneById($id);
-            if (!$gallery) {
+            $infoMessage = $this->infoMessageRepository->getOneById($id);
+            if (!$infoMessage) {
                 $this->error();
             }
-            $this->infoMessage = $gallery;
+            $this->infoMessage = $infoMessage;
         } else {
             $this->template->h1 = 'New info message';
         }

@@ -7,9 +7,10 @@ use Nette;
 use Nette\DI\Compiler;
 use Nette\DI\Configurator;
 use Salamek\Cms\DI\CmsExtension;
+
 /**
  * Class InfoMessageExtension
- * @package Dravencms\Gallery\DI
+ * @package Dravencms\InfoMessage\DI
  */
 class InfoMessageExtension extends Nette\DI\CompilerExtension
 {
@@ -34,10 +35,10 @@ class InfoMessageExtension extends Nette\DI\CompilerExtension
      * @param Configurator $config
      * @param string $extensionName
      */
-    public static function register(Configurator $config, $extensionName = 'galleryExtension')
+    public static function register(Configurator $config, $extensionName = 'infoMessageExtension')
     {
         $config->onCompile[] = function (Configurator $config, Compiler $compiler) use ($extensionName) {
-            $compiler->addExtension($extensionName, new GalleryExtension());
+            $compiler->addExtension($extensionName, new InfoMessageExtension());
         };
     }
 

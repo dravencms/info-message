@@ -77,7 +77,7 @@ class InfoMessageGrid extends BaseControl
     {
         $grid = $this->baseGridFactory->create($this, $name);
 
-        $grid->setModel($this->infoMessageRepository->getGalleryQueryBuilder());
+        $grid->setModel($this->infoMessageRepository->getInfoMessageQueryBuilder());
 
         $grid->addColumnText('identifier', 'Identifier')
             ->setFilterText()

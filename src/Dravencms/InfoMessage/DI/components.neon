@@ -1,2 +1,5 @@
 - Dravencms\AdminModule\Components\InfoMessage\InfoMessageForm\InfoMessageFormFactory
 - Dravencms\AdminModule\Components\InfoMessage\InfoMessageGrid\InfoMessageGridFactory
+
+- Dravencms\FrontModule\Components\InfoMessage\InfoMessage\Detail\DetailFactory
+

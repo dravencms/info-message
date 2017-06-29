@@ -1,0 +1,6 @@
+- Dravencms\Model\InfoMessage\Repository\InfoMessageRepository
+- Dravencms\Model\InfoMessage\Repository\InfoMessageTranslationRepository
+
+- Dravencms\Model\InfoMessage\Fixtures\AclOperationFixtures
+- Dravencms\Model\InfoMessage\Fixtures\AclResourceFixtures
+- Dravencms\Model\InfoMessage\Fixtures\AdminMenuFixtures

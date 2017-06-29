@@ -1,0 +1,38 @@
+{
+  "name": "dravencms/info-message",
+  "type": "dravencms-package",
+  "description": "Info message module or your dravencms web (Inform about holidays, planned web maintenance, etc)",
+  "keywords": [
+    "dravencms",
+    "info",
+    "message"
+  ],
+  "license": [
+    "LGPL-3.0"
+  ],
+  "authors": [
+    {
+      "name": "Adam Schubert"
+    }
+  ],
+  "require": {
+    "dravencms/admin": "^1.0"
+  },
+  "require-dev": {
+    "nette/tester": "@dev"
+  },
+  "autoload": {
+    "psr-0": {
+      "Dravencms\\": "src/"
+    }
+  },
+  "extra": {
+    "dravencms": {
+      "configuration": {
+        "extensions": {
+          "infoMessage": "Dravencms\\InfoMessage\\DI\\InfoMessageExtension"
+        }
+      }
+    }
+  }
+}
